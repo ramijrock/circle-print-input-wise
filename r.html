@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agnik</title>
+    <style>
+        label{
+            margin: 5%;
+            text-align: center;
+            align-items: center;
+        }
+        .container{
+            text-align: center;
+            margin-top: 40px;
+        }
+        .mydiv{
+            border: 1px solid black;
+            margin-top: 10px;
+        }
+        /* .row{
+            border: 1px solid black;
+        } */
+        .col {
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            border-radius: 50%;
+            display: inline-block;
+            padding: 25px;
+            margin: 10px;
+        }
+        .col1 {
+            height: 100px;
+            width: 100px;
+            background-color: green;
+            border-radius: 50%;
+            display: inline-block;
+            padding: 25px;
+            margin: 10px;
+        }
+        .col2 {
+            height: 100px;
+            width: 100px;
+            background-color: blue;
+            border-radius: 50%;
+            display: inline-block;
+            padding: 25px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <label for="red"> Red
+        <input type="text" name="red" id="red">
+    </label>
+    <label for="green"> Green
+        <input type="text" name="green" id="green">
+    </label>
+    <label for="blue"> Blue
+        <input type="text" name="blue" id="blue">
+    </label>
+</div>
+    <div style="text-align: center; margin-top: 2%;">
+        Number of circles 
+        <!-- <input type="text" name="circle" id="circle"> -->
+        <p id="circle"></p>
+    </div>
+    <div class="container">
+        <input type="button" value="submit" onclick="myFunction()">
+    </div>
+
+    <div class="mydiv" id="myDiv">
+        <div id="redrow">
+            <!-- <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div> -->
+        </div>
+        <div class="row" id="greenrow">
+            <!-- <div class="col1"></div>
+            <div class="col1"></div>
+            <div class="col1"></div>
+            <div class="col1"></div> -->
+        </div>
+        <div class="row" id="bluerow">
+            <!-- <div class="col2"></div>
+            <div class="col2"></div>
+            <div class="col2"></div>
+            <div class="col2"></div> -->
+        </div>
+    </div>
+
+    <script>
+        function myFunction(){
+            
+            var red = document.getElementById('red').value;
+            var green = document.getElementById('green').value;
+            var blue = document.getElementById('blue').value;
+            //console.log(red, green, blue);
+            var circle = document.getElementById('circle').innerHTML = Number(red) + Number(green) + Number(blue);
+
+            // var element = document.getElementsByClassName(row);
+          
+            var redRow = document.querySelector("#redrow") 
+            var greenRow = document.querySelector("#greenrow") 
+            var blueRow = document.querySelector("#bluerow")
+            
+            for (let i = 0; i < red; i++) {
+                const div = document.createElement("div")
+                div.classList.add("col")
+                //console.log(div);
+                redRow.append(div)
+            }
+              
+            for (let i = 0; i < green; i++) {
+                const div = document.createElement("div")
+                div.classList.add("col1")
+                greenRow.append(div)
+            }
+
+            for (let i = 0; i < blue; i++) {
+                const div = document.createElement("div")
+                div.classList.add("col2")
+                blueRow.append(div)
+            }
+            
+            // var elem1 = document.getElementById("redrow");
+            //     elem1.remove();
+            //     var elem2 = document.getElementById("greenrow");
+            //     elem2.remove();
+            //     var elem3 = document.getElementById("bluerow");
+            //     elem3.remove();
+            redRow.value ="";
+
+        }
+    </script>
+
+</body>
+</html>
